@@ -112,8 +112,3 @@ This solution collects anonymous operational metrics to help AWS improve the qua
 - [@guidev](https://github.com/guidev) for [#309](https://github.com/aws-solutions/serverless-image-handler/pull/309)
 - [@njtmead](https://github.com/njtmead) for [#276](https://github.com/aws-solutions/serverless-image-handler/pull/276)
 
-# License
-
-Copyright 2019-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
-
-SPDX-License-Identifier: Apache-2.0
