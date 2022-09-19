@@ -7,13 +7,14 @@
 - [Solution Overview](#solution-overview)
 - [Architecture Diagram](#architecture-diagram)
 - [AWS CDK and Solutions Constructs](#aws-cdk-and-solutions-constructs)
+- [Generating a URL for the Image](#generating-a-url-for-the-image)
 - [Customizing the Solution](#customizing-the-solution)
-  - [Prerequisites for Customization](#prerequisites-for-customization)
-    - [1. Clone the repository](#1-clone-the-repository)
-    - [2. Declare environment variables](#2-declare-environment-variables)
-  - [Unit Test](#unit-test)
-  - [Build](#build)
-  - [Deploy](#deploy)
+	- [Prerequisites for Customization](#prerequisites-for-customization)
+		- [1. Clone the repository](#1-clone-the-repository)
+		- [2. Declare environment variables](#2-declare-environment-variables)
+	- [Unit Test](#unit-test)
+	- [Build](#build)
+	- [Deploy](#deploy)
 - [Collection of operational metrics](#collection-of-operational-metrics)
 - [External Contributors](#external-contributors)
 - [License](#license)
@@ -40,6 +41,26 @@ The AWS CloudFormation template deploys an Amazon CloudFront distribution, Amazo
 - [aws-cloudfront-apigateway-lambda](https://docs.aws.amazon.com/solutions/latest/constructs/aws-cloudfront-apigateway-lambda.html)
 
 In addition to the AWS Solutions Constructs, the solution uses AWS CDK directly to create infrastructure resources.
+
+# Generating a URL for the Image
+
+You create a json object which has all the details about how you would like to resize the image, and then it will resize the image accordingly.
+
+```
+const imageRequest = JSON.stringify({
+	bucket: 'glazier-documents',
+	key: 'business_1/job_1/firstImage.jpg',
+	 edits: {
+	 	resize:{
+	 		width:300,
+	 		height: 300
+	 	}
+	 },
+});
+const url = `https://dppmt1rlk1jgi.cloudfront.net/${btoa(imageRequest)}`;
+console.log(url);
+
+```
 
 # Customizing the Solution
 
